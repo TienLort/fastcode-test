@@ -6,3 +6,15 @@ window.addEventListener("scroll", function () {
     body.classList.remove("scrolled");
   }
 });
+
+const links = document.querySelectorAll(".navbar a");
+links.forEach((link) => {
+  link.addEventListener("click", function (event) {
+    links.forEach((link) => {
+      link.classList.remove("change-color");
+    });
+
+    // Thêm lớp "change-color" cho thẻ <a> được click
+    this.classList.add("change-color");
+  });
+});

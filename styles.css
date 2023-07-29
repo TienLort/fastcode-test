@@ -35,6 +35,10 @@
   --font-weight-bold: 700;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--white-color);
   font-family: var(--body-font-family);
@@ -62,6 +66,7 @@ h4,
 h5,
 h6 {
   font-weight: var(--font-weight-semibold);
+  margin: 0;
 }
 
 h1 {
@@ -87,7 +92,6 @@ h5 {
 }
 
 h6 {
-  color: var(--secondary-color);
   font-size: var(--h6-font-size);
 }
 
@@ -140,6 +144,7 @@ ul {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-left: 20px;
 }
 
 .logo {
@@ -173,15 +178,19 @@ body.scrolled .navbar::before {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
+.navbarNav {
+  position: relative;
+  top: 20px;
+}
+
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   position: fixed;
   top: -56px;
   left: 0;
   width: 100%;
-
   padding: 10px 0;
 }
 
@@ -192,20 +201,22 @@ body.scrolled .navbar::before {
   margin: 0 10px;
   position: relative;
   text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
 }
 body.scrolled .navbar a.nav-link {
   color: #fff;
 }
-.navbar a.nav-link:hover,
-.navbar a.nav-link.active {
-  color: orange;
-}
-body.scrolled .navbar a.nav-link:hover,
-body.scrolled .navbar a.nav-link:active {
+body.scrolled .navbar a.nav-link:hover {
   color: orange;
 }
 .navbar-nav {
   display: flex;
+  gap: 54px;
+}
+.navbar a.change-color,
+body.scrolled .navbar a.change-color {
+  color: orange;
 }
 
 /*---------------------------------------
@@ -228,6 +239,26 @@ body.scrolled .navbar a.nav-link:active {
 
 .navy-left {
   flex: 1;
+  position: relative;
+}
+
+.nav-number {
+  position: fixed;
+  top: 200px;
+  left: 74px;
+  padding: 5px;
+  z-index: 10;
+}
+
+.navy-pos {
+  position: absolute;
+  top: -106px;
+  left: 264px;
+  width: 200%;
+}
+.navy-pos h1 {
+  margin-top: 20px;
+  letter-spacing: 7px;
 }
 
 .navy-right {
@@ -238,7 +269,6 @@ body.scrolled .navbar a.nav-link:active {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* ... (other styles for hero-image) */
 }
 
 /*---------------------------------------
@@ -267,6 +297,52 @@ body.scrolled .navbar a.nav-link:active {
 .voyager-right {
   flex: 1;
 }
+.voyager-pos {
+  position: relative;
+}
+.voyager-square {
+  width: 650px;
+  height: 200px;
+  border: 4px solid #b7a984;
+  position: absolute;
+  top: -110px;
+  left: -300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.voyager-square::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 20%;
+  width: 20%;
+  height: 2%;
+  background-color: #ffffff;
+}
+
+.voyager-square_title {
+  flex: 1;
+}
+
+.voyager-square_title h1 {
+  position: absolute;
+  top: 20px;
+  left: -128px;
+  color: #fff;
+}
+.voyager-square_title h5 {
+  float: right;
+  padding: 60px 34px 0 0;
+  color: #fff;
+}
+
+.voyager-pos .arrow-down img {
+  position: absolute;
+  top: 94px;
+  height: 60px;
+  left: 150px;
+}
+
 /*---------------------------------------
     drifter            
 -----------------------------------------*/
@@ -301,12 +377,80 @@ body.scrolled .navbar a.nav-link:active {
   object-fit: cover;
 }
 
+.drifter-pos {
+  position: relative;
+}
+.drifter-title {
+  position: absolute;
+  top: -130px;
+  left: 130px;
+}
+.drifter-square {
+  width: 650px;
+  height: 200px;
+  border: 4px solid #b7a984;
+  position: absolute;
+  top: -110px;
+  left: 130px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.drifter-square::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  width: 20%;
+  height: 2%;
+  background-color: #ededed;
+}
+
+.drifter-square_title {
+  flex: 1;
+}
+
+.drifter-square_title h1 {
+  position: absolute;
+  top: 20px;
+  left: 325px;
+  width: 600px;
+  color: #fff;
+}
+.drifter-square_title h5 {
+  float: right;
+  padding: 60px 14px 0 0;
+  color: #fff;
+}
+
+.drifter-pos .arrow-down img {
+  position: absolute;
+  top: 94px;
+  height: 60px;
+  left: 320px;
+}
+
 /*---------------------------------------
     collect           
 -----------------------------------------*/
+.collect-section {
+  position: relative;
+  padding-bottom: 120px;
+}
+.collect-title {
+  margin-top: 120px;
+  text-align: center;
+}
+.collect-desc {
+  position: absolute;
+  top: 30px;
+  right: 100px; /* Khoảng cách với rìa phải là 20px */
+  background-color: brown; /* Màu nền màu nâu */
+  padding: 10px 200px 10px 10px; /* Khoảng cách giữa nội dung và viền nền */
+  transform: translateY(-50%); /* Đưa phần tử lên trên một chút */
+}
 .collect-container {
-  max-width: 1480px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 120px auto 0;
   padding: 0 20px;
 }
 .collect1,
@@ -320,6 +464,38 @@ body.scrolled .navbar a.nav-link:active {
   justify-content: space-between;
   align-items: center;
 }
+.product-number {
+  display: flex;
+  align-items: center;
+}
+.vertical-line {
+  width: 100px;
+  margin-left: 6px;
+  height: 2px;
+  background-color: black;
+  display: inline-block;
+}
+
+.horizontal-line {
+  height: 50px;
+  width: 2px;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.collect1-logo {
+  display: flex;
+  margin-top: 60px;
+  gap: 20px;
+}
+.collect1-logo img {
+  width: 120px;
+  height: 54px;
+}
+.collect1-logo .horizontal-line {
+  height: 105px;
+  z-index: 1;
+}
 
 .collect1-top .collect1-left {
   flex: 3;
@@ -331,7 +507,7 @@ body.scrolled .navbar a.nav-link:active {
 .collect1-bottom {
   display: flex;
   position: absolute;
-  top: 390px;
+  top: 422px;
   left: 152px;
   justify-content: space-between;
   align-items: center;
@@ -341,54 +517,89 @@ body.scrolled .navbar a.nav-link:active {
 .collect1-bottom .collect1-left {
   flex: 2;
 }
+.collect1-bottom .collect1-left .horizontal-line {
+  height: 105px;
+  z-index: 1;
+}
+
+.bottom-desc {
+  padding: 0 20px;
+  display: inline-block;
+  background-color: #b7a37e;
+  position: relative;
+  left: -32px;
+}
+.bottom-desc h6 {
+  position: relative;
+  top: -10px;
+  margin: 0;
+}
+
 .collect1-bottom .collect1-right {
   flex: 2;
 }
 
 .collect2 {
-  margin-top: 260px;
+  margin-top: 120px;
 }
-
+.collect2 .product-number {
+  justify-content: center;
+  position: relative;
+  top: 88px;
+}
 .collect2-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
+  position: relative;
+  left: 120px;
+  top: 88px;
 }
 
 .collect2-top .collect2-left {
-  flex: 3;
+  flex: 2;
 }
 .collect2-top .collect2-right {
-  flex: 2;
+  flex: 3;
 }
 
 .collect2-bottom {
   display: flex;
-  position: absolute;
-  top: 316px;
-  left: 152px;
   justify-content: space-between;
   align-items: center;
+  padding-right: 100px;
 }
 
 .collect2-bottom .collect2-left {
   flex: 3;
 }
+.collect2-bottom .collect2-left img {
+  width: 382px;
+  position: relative;
+  left: 200px;
+}
 .collect2-bottom .collect2-right {
-  flex: 2;
+  flex: 3;
+}
+
+.second-container {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 20px;
 }
 
 .collect3 {
-  margin-top: 120px;
+  margin-top: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 34px;
+  position: relative;
 }
 .image-wrap {
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   overflow: hidden;
 }
 
@@ -396,4 +607,83 @@ body.scrolled .navbar a.nav-link:active {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.last-img {
+  position: absolute;
+  top: -320px;
+  right: 236px;
+  width: 160px;
+}
+.last-img .background {
+  width: 100%;
+  height: 460px;
+}
+
+.last-img .G {
+  position: absolute;
+  top: 274px;
+  left: 69px;
+  width: 31px;
+}
+
+.last-img .oo {
+  position: absolute;
+  top: 320px;
+  left: 70px;
+  width: 82px;
+}
+/*---------------------------------------
+    contact           
+-----------------------------------------*/
+.contact-section {
+  background-color: #ededed;
+}
+.contact-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.main-contact {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contact-logo {
+  flex-basis: 15%;
+  padding: 10px;
+}
+
+.contact-location {
+  flex-basis: 25%; /* Chiếm 2/8 (25%) phần */
+  padding: 10px;
+}
+.logo {
+  max-width: 100%;
+}
+.contact-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+.contact-items {
+  flex-basis: 37.5%; /* Chiếm 3/8 (37.5%) phần */
+  padding: 10px;
+}
+
+.contact-email {
+  flex-basis: 12.5%; /* Chiếm 1/8 (12.5%) phần */
+  padding: 10px;
+}
+
+.sub-contact {
+  display: flex;
+}
+.social-subnav {
+  display: flex;
+  gap: 30px;
+}
+.sub-ore {
+  margin: auto 0;
 }

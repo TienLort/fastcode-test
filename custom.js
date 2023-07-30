@@ -73,3 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", highlightCurrentSection);
 });
+
+function toggleNav() {
+  var x = document.getElementById("navbarNav");
+  x.className += " responsive";
+}

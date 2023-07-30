@@ -29,6 +29,13 @@ numberLinks.forEach((link) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  function isAtBottom() {
+    var windowHeight = window.innerHeight;
+    var fullHeight = document.documentElement.scrollHeight;
+    var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+    return scrollPosition + windowHeight >= fullHeight;
+  }
+
   function highlightCurrentSection() {
     const sections = document.querySelectorAll("section");
     const links = document.querySelectorAll(".navbar a");
@@ -50,6 +57,16 @@ document.addEventListener("DOMContentLoaded", function () {
     links.forEach((link) => link.classList.remove("change-color"));
 
     links[currentSectionIndex + 1].classList.add("change-color");
+
+    if (isAtBottom()) {
+      numberLinks.forEach((otherLink) => {
+        otherLink.classList.remove("active");
+      });
+      links.forEach((link) => link.classList.remove("change-color"));
+      numberLinks[currentSectionIndex + 1].classList.add("active");
+
+      links[currentSectionIndex + 2].classList.add("change-color");
+    }
   }
 
   highlightCurrentSection();

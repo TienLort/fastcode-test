@@ -457,7 +457,7 @@ a.change-color::after {
   position: absolute;
   top: 70px;
   left: 440px;
-  width: 600px;
+  width: 504px;
   color: #fff;
   letter-spacing: 7px;
 }
@@ -677,7 +677,7 @@ a.change-color::after {
 .last-img {
   position: absolute;
   top: -320px;
-  right: 236px;
+  right: 16%;
   width: 160px;
 }
 .last-img .background {

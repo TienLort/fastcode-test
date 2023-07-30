@@ -2,16 +2,8 @@
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
 :root {
-  --white-color: #ffffff;
-  --primary-color: #e76f51;
-  --secondary-color: #e9c46a;
-  --section-bg-color: #f0f8ff;
-  --custom-btn-bg-color: #f4a261;
-  --custom-btn-bg-hover-color: #e76f51;
-  --dark-color: #000000;
-  --p-color: #717275;
-  --link-hover-color: #e76f51;
-
+  --main-color: #b8a47e;
+  --text-color: #adadad;
   --body-font-family: "Unbounded", sans-serif;
 
   --h1-font-size: 42px;
@@ -51,14 +43,6 @@ body {
   TYPOGRAPHY               
 -----------------------------------------*/
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--dark-color);
-}
-
 h1,
 h2,
 h3,
@@ -96,13 +80,13 @@ h6 {
 }
 
 p {
-  color: var(--p-color);
+  color: var(--text-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-normal);
 }
 
 ul li {
-  color: var(--p-color);
+  color: var(--main-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-normal);
 }
@@ -208,7 +192,7 @@ body.scrolled .navbar a.nav-link {
   color: #fff;
 }
 body.scrolled .navbar a.nav-link:hover {
-  color: orange;
+  color: var(--main-color);
 }
 .navbar-nav {
   display: flex;
@@ -216,7 +200,32 @@ body.scrolled .navbar a.nav-link:hover {
 }
 .navbar a.change-color,
 body.scrolled .navbar a.change-color {
-  color: orange;
+  color: var(--main-color);
+}
+
+a.change-color::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 1px;
+  background-color: var(--main-color);
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+}
+a.change-color::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  bottom: 6px;
+  left: 110%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
 }
 
 /*---------------------------------------
@@ -256,6 +265,25 @@ body.scrolled .navbar a.change-color {
   left: 264px;
   width: 200%;
 }
+.navy_gear-up {
+  margin-top: 60px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  padding-left: 80px;
+  color: var(--main-color);
+}
+.navy_gear-up .vertical-line {
+  width: 40px;
+  background-color: var(--main-color);
+}
+
+.navy_gear-up svg {
+  fill: var(--main-color);
+}
+
 .navy-pos h1 {
   margin-top: 20px;
   letter-spacing: 7px;
@@ -301,14 +329,15 @@ body.scrolled .navbar a.change-color {
   position: relative;
 }
 .voyager-square {
-  width: 650px;
-  height: 200px;
+  width: 680px;
+  height: 240px;
   border: 4px solid #b7a984;
   position: absolute;
-  top: -110px;
+  top: -140px;
   left: -300px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 .voyager-square::after {
   content: "";
@@ -326,21 +355,27 @@ body.scrolled .navbar a.change-color {
 
 .voyager-square_title h1 {
   position: absolute;
-  top: 20px;
-  left: -128px;
+  top: 64px;
+  left: -246px;
   color: #fff;
+  letter-spacing: 7px;
 }
-.voyager-square_title h5 {
+.voyager-square_title h6 {
   float: right;
-  padding: 60px 34px 0 0;
+  padding: 48px 48px 0 0;
   color: #fff;
+  font-weight: 500;
 }
-
+.voyager-square p {
+  line-height: 32px;
+  font-size: 14px;
+  padding-right: 27px;
+}
 .voyager-pos .arrow-down img {
   position: absolute;
-  top: 94px;
+  top: 104px;
   height: 60px;
-  left: 150px;
+  left: 172px;
 }
 
 /*---------------------------------------
@@ -382,15 +417,18 @@ body.scrolled .navbar a.change-color {
 }
 .drifter-title {
   position: absolute;
-  top: -130px;
+  top: -167px;
   left: 130px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #afafaf;
 }
 .drifter-square {
-  width: 650px;
-  height: 200px;
+  width: 680px;
+  height: 240px;
   border: 4px solid #b7a984;
   position: absolute;
-  top: -110px;
+  top: -140px;
   left: 130px;
   display: flex;
   justify-content: space-evenly;
@@ -404,29 +442,36 @@ body.scrolled .navbar a.change-color {
   height: 2%;
   background-color: #ededed;
 }
-
+.drifter-square p {
+  line-height: 32px;
+  font-size: 14px;
+  padding: 18px 100px 10px 40px;
+}
 .drifter-square_title {
-  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
 
 .drifter-square_title h1 {
   position: absolute;
-  top: 20px;
-  left: 325px;
+  top: 70px;
+  left: 440px;
   width: 600px;
   color: #fff;
+  letter-spacing: 7px;
 }
-.drifter-square_title h5 {
-  float: right;
-  padding: 60px 14px 0 0;
+.drifter-square_title h6 {
+  padding-top: 30px;
+  font-weight: 300;
   color: #fff;
 }
 
 .drifter-pos .arrow-down img {
   position: absolute;
-  top: 94px;
+  top: 104px;
   height: 60px;
-  left: 320px;
+  left: 330px;
 }
 
 /*---------------------------------------
@@ -437,21 +482,30 @@ body.scrolled .navbar a.change-color {
   padding-bottom: 120px;
 }
 .collect-title {
-  margin-top: 120px;
+  padding-top: 120px;
   text-align: center;
 }
 .collect-desc {
-  position: absolute;
-  top: 30px;
-  right: 100px; /* Khoảng cách với rìa phải là 20px */
-  background-color: brown; /* Màu nền màu nâu */
-  padding: 10px 200px 10px 10px; /* Khoảng cách giữa nội dung và viền nền */
-  transform: translateY(-50%); /* Đưa phần tử lên trên một chút */
+  margin-left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.collect-desc h6 {
+  background-color: #e1d9c9;
+  padding-right: 240px;
 }
 .collect-container {
   max-width: 1200px;
-  margin: 120px auto 0;
+  margin: 70px auto 0;
   padding: 0 20px;
+}
+.collect_read-more {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
 }
 .collect1,
 .collect2 {
@@ -503,7 +557,10 @@ body.scrolled .navbar a.change-color {
 .collect1-top .collect1-right {
   flex: 2;
 }
-
+.collect1-top .collect1-right p {
+  width: 358px;
+  font-size: 14px;
+}
 .collect1-bottom {
   display: flex;
   position: absolute;
@@ -521,7 +578,10 @@ body.scrolled .navbar a.change-color {
   height: 105px;
   z-index: 1;
 }
-
+.collect1-bottom .collect1-left p {
+  width: 360px;
+  padding-left: 42px;
+}
 .bottom-desc {
   padding: 0 20px;
   display: inline-block;
@@ -533,6 +593,7 @@ body.scrolled .navbar a.change-color {
   position: relative;
   top: -10px;
   margin: 0;
+  letter-spacing: 7px;
 }
 
 .collect1-bottom .collect1-right {
@@ -545,11 +606,11 @@ body.scrolled .navbar a.change-color {
 .collect2 .product-number {
   justify-content: center;
   position: relative;
-  top: 88px;
+  top: 115px;
+  z-index: 1;
 }
 .collect2-top {
   display: flex;
-  justify-content: space-between;
   /* align-items: center; */
   position: relative;
   left: 120px;
@@ -557,10 +618,14 @@ body.scrolled .navbar a.change-color {
 }
 
 .collect2-top .collect2-left {
-  flex: 2;
+  width: 40%;
 }
 .collect2-top .collect2-right {
-  flex: 3;
+  padding-left: 100px;
+}
+.collect2-top .collect2-right p {
+  width: 340px;
+  font-size: 14px;
 }
 
 .collect2-bottom {
@@ -646,8 +711,7 @@ body.scrolled .navbar a.change-color {
 .main-contact {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .contact-logo {
@@ -656,8 +720,8 @@ body.scrolled .navbar a.change-color {
 }
 
 .contact-location {
-  flex-basis: 25%; /* Chiếm 2/8 (25%) phần */
-  padding: 10px;
+  flex-basis: 25%;
+  padding: 24px 10px;
 }
 .logo {
   max-width: 100%;
@@ -668,22 +732,93 @@ body.scrolled .navbar a.change-color {
   padding: 0;
 }
 .contact-items {
-  flex-basis: 37.5%; /* Chiếm 3/8 (37.5%) phần */
+  flex-basis: 37.5%;
   padding: 10px;
 }
 
 .contact-email {
-  flex-basis: 12.5%; /* Chiếm 1/8 (12.5%) phần */
-  padding: 10px;
+  flex-basis: 12.5%;
+  padding: 24px 10px;
 }
 
+.email-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.email-desc {
+  font-size: 11px;
+  padding: 10px 0;
+  color: #383838;
+}
+
+.email-form {
+  display: flex;
+}
+
+.email-form input {
+  border: 1px solid #d1d1d1;
+}
+
+.email-form input:focus {
+  outline: none;
+}
+
+.email-form button {
+  background-color: #000;
+}
+
+.contact-nav .main-item {
+  font-weight: 600;
+}
+.contact-link {
+  color: #919191;
+}
 .sub-contact {
   display: flex;
 }
 .social-subnav {
   display: flex;
-  gap: 30px;
+  gap: 60px;
 }
+.location-desc {
+  color: #8f8f8f;
+}
+
 .sub-ore {
   margin: auto 0;
+  font-size: 12px;
+  color: #808080;
+}
+
+/* Nav number */
+.nav-number {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-number .horizontal-line {
+  height: 30px;
+  background-color: var(--main-color);
+}
+
+.active {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 25px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+}
+.number-link {
+  color: #6c6c6c;
+  font-weight: 600;
 }

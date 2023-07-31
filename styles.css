@@ -1097,6 +1097,31 @@ a.change-color::after {
     display: block;
     text-align: left;
   }
+
+  #navbarNav.responsive {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Màu nền của menu overlay */
+    z-index: 9999; /* Đảm bảo nằm trên các phần tử khác trên trang */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #navLinks.responsive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin-bottom: 20px;
+  }
+
   .navy-container {
     display: block;
   }

@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     numberLinks[currentSectionIndex].classList.add("active");
     links.forEach((link) => link.classList.remove("change-color"));
 
-    links[currentSectionIndex + 1].classList.add("change-color");
+    links[currentSectionIndex].classList.add("change-color");
 
     if (isAtBottom()) {
       numberLinks.forEach((otherLink) => {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       links.forEach((link) => link.classList.remove("change-color"));
       numberLinks[currentSectionIndex + 1].classList.add("active");
 
-      links[currentSectionIndex + 2].classList.add("change-color");
+      links[currentSectionIndex + 1].classList.add("change-color");
     }
   }
 

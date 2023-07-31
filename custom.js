@@ -7,7 +7,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-const links = document.querySelectorAll(".navbar a");
+const links = document.querySelectorAll(".navbar .nav-link");
 links.forEach((link) => {
   link.addEventListener("click", function (event) {
     links.forEach((link) => {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function highlightCurrentSection() {
     const sections = document.querySelectorAll("section");
-    const links = document.querySelectorAll(".navbar a");
+    const links = document.querySelectorAll(".navbar .nav-link");
     const numberLinks = document.querySelectorAll(".number-link");
 
     let currentSectionIndex = sections.length - 1;
@@ -75,6 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function toggleNav() {
-  var x = document.getElementById("navbarNav");
-  x.className += " responsive";
+  var navLinks = document.getElementById("navLinks");
+  var navbarNav = document.getElementById("navbarNav");
+  if (navLinks.classList.contains("responsive")) {
+    navLinks.classList.remove("responsive");
+    navbarNav.classList.remove("responsive");
+  } else {
+    navLinks.classList.add("responsive");
+    navbarNav.classList.add("responsive");
+  }
 }
